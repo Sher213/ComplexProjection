@@ -543,7 +543,7 @@ int main()
                 );
 
 
-                // P(x) = a(x) + b(x)xi
+                // P(x) = a(x) + b(x)i
 
                 projectionReal.push_back(
                     forward
@@ -937,7 +937,7 @@ int main()
 
 
         ImGui::Text(
-            "P(x) = a(x) + b(x)xi"
+            "P(x) = a(x) + b(x)i"
         );
 
 
