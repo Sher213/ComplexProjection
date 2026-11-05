@@ -1,0 +1,21 @@
+# ninja log v6
+1655	1728	8156025360507628	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure	4017da3e670cad6d
+1655	1728	8156025360507628	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure	4017da3e670cad6d
+2	78	8156025344009131	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir	12fe2146ce390b27
+1877	1950	8156025362738122	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test	6125eaf5e702c4bc
+78	1498	8156025358199300	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download	dabd4d3928be7ceb
+1580	1654	8156025359771199	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch	46932fb4aaed5d54
+78	1498	8156025358199300	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download	dabd4d3928be7ceb
+1580	1654	8156025359771199	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch	46932fb4aaed5d54
+1728	1802	8156025361238735	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build	f87a405ad0db66cc
+1728	1802	8156025361238735	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build	f87a405ad0db66cc
+1802	1877	8156025361984776	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install	454769b98671d2ae
+2	78	8156025344009131	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir	12fe2146ce390b27
+1499	1579	8156025359017100	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update	4766e906e4590085
+1802	1877	8156025361984776	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install	454769b98671d2ae
+1951	2053	8156025363757895	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done	329ad10b4dcd5df7
+1499	1579	8156025359017100	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update	4766e906e4590085
+1877	1950	8156025362738122	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test	6125eaf5e702c4bc
+1951	2053	8156025363757895	CMakeFiles/glfw-populate-complete	329ad10b4dcd5df7
+1951	2053	8156025363757895	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done	329ad10b4dcd5df7
+1951	2053	8156025363757895	D:/coding-work/complex_projection_rl_like/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete	329ad10b4dcd5df7

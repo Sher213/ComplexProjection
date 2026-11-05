@@ -1,156 +1,72 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.14)
 
-project(FunctionalSpace
+project(UniformProjectionRL 
     VERSION 1.0
     LANGUAGES CXX
 )
 
-# --------------------------------------------------
-# C++ Standard
-# --------------------------------------------------
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Fetch Dear ImGui and GLFW via CMake FetchContent for instant GUI support
+include(FetchContent)
 
-# --------------------------------------------------
-# Dependencies
-# --------------------------------------------------
-
-# GLFW options
+# Fetch GLFW for windowing and OpenGL context
+FetchContent_Declare(
+    glfw
+    URL https://github.com/glfw/glfw/archive/refs/tags/3.3.8.zip
+)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(glfw)
 
-add_subdirectory(
-    external/glfw
+# Fetch Dear ImGui
+FetchContent_Declare(
+    imgui
+    URL https://github.com/ocornut/imgui/archive/refs/tags/v1.89.9.zip
 )
+FetchContent_MakeAvailable(imgui)
 
-
-# --------------------------------------------------
-# OpenGL
-# --------------------------------------------------
-
-find_package(OpenGL REQUIRED)
-
-
-# --------------------------------------------------
-# Dear ImGui
-# --------------------------------------------------
-
-set(IMGUI_DIR
-    ${CMAKE_CURRENT_SOURCE_DIR}/external/imgui
-)
-
+# ImGui source files library target
 add_library(imgui STATIC
-
-    # Core
-    ${IMGUI_DIR}/imgui.cpp
-    ${IMGUI_DIR}/imgui_draw.cpp
-    ${IMGUI_DIR}/imgui_tables.cpp
-    ${IMGUI_DIR}/imgui_widgets.cpp
-
-    # GLFW + OpenGL3 backend
-    ${IMGUI_DIR}/backends/imgui_impl_glfw.cpp
-    ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
+    ${imgui_SOURCE_DIR}/imgui.cpp
+    ${imgui_SOURCE_DIR}/imgui_demo.cpp
+    ${imgui_SOURCE_DIR}/imgui_draw.cpp
+    ${imgui_SOURCE_DIR}/imgui_tables.cpp
+    ${imgui_SOURCE_DIR}/imgui_widgets.cpp
+    ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
+    ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
 )
 
 target_include_directories(imgui PUBLIC
+    "${imgui_SOURCE_DIR}"
+    "${imgui_SOURCE_DIR}/backends"
+)
+target_link_libraries(imgui PRIVATE glfw)
 
-    ${IMGUI_DIR}
-
-    ${IMGUI_DIR}/backends
+# Main Executable
+add_executable(UniformProjectionRL
+    main.cpp
+    Function.h
+    ComplexProjection.h
 )
 
-target_link_libraries(imgui PUBLIC
-
-    glfw
-    OpenGL::GL
+target_include_directories(UniformProjectionRL PRIVATE 
+    "${CMAKE_CURRENT_SOURCE_DIR}"
+    "${glfw_SOURCE_DIR}/include"
+    "${imgui_SOURCE_DIR}"
+    "${imgui_SOURCE_DIR}/backends"
 )
 
+target_link_libraries(UniformProjectionRL PRIVATE glfw imgui)
 
-# --------------------------------------------------
-# ImPlot
-# --------------------------------------------------
-
-set(IMPLOT_DIR
-    ${CMAKE_CURRENT_SOURCE_DIR}/external/implot
-)
-
-add_library(implot STATIC
-
-    ${IMPLOT_DIR}/implot.cpp
-    ${IMPLOT_DIR}/implot_items.cpp
-    ${IMPLOT_DIR}/implot_demo.cpp
-)
-
-target_include_directories(implot PUBLIC
-
-    ${IMPLOT_DIR}
-
-    ${IMGUI_DIR}
-)
-
-target_link_libraries(implot PUBLIC
-
-    imgui
-)
-
-
-# --------------------------------------------------
-# Your application
-# --------------------------------------------------
-
-add_executable(FunctionalSpace
-
-    src/main.cpp
-)
-
-
-# --------------------------------------------------
-# Include directories for your application
-# --------------------------------------------------
-
-target_include_directories(FunctionalSpace PRIVATE
-
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-)
-
-
-# --------------------------------------------------
-# Link everything together
-# --------------------------------------------------
-
-target_link_libraries(FunctionalSpace PRIVATE
-
-    implot
-    imgui
-    glfw
-    OpenGL::GL
-)
-
-
-# --------------------------------------------------
-# Windows-specific settings
-# --------------------------------------------------
-
+# Link OpenGL on Windows/Linux/Mac
 if(WIN32)
-
-    target_compile_definitions(FunctionalSpace PRIVATE
-        _CRT_SECURE_NO_WARNINGS
-    )
-
+    target_link_libraries(UniformProjectionRL PRIVATE opengl32)
+elseif(APPLE)
+    find_library(APPLE_OPENGL_FRAMEWORK OpenGL)
+    target_link_libraries(UniformProjectionRL PRIVATE ${APPLE_OPENGL_FRAMEWORK})
+else()
+    target_link_libraries(UniformProjectionRL PRIVATE GL)
 endif()
-
-
-# --------------------------------------------------
-# Output directory
-# --------------------------------------------------
-
-set_target_properties(FunctionalSpace PROPERTIES
-
-    RUNTIME_OUTPUT_DIRECTORY
-    ${CMAKE_BINARY_DIR}/bin
-
-)

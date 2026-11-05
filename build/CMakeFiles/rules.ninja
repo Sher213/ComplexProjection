@@ -6,15 +6,15 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: FunctionalSpace
-# Configurations: 
+# Project: UniformProjectionRL
+# Configurations: Release
 # =============================================================================
 # =============================================================================
 
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__imgui_unscanned_
+rule CXX_COMPILER__imgui_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Strawberry\c\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule CXX_COMPILER__imgui_unscanned_
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__imgui_
+rule CXX_STATIC_LIBRARY_LINKER__imgui_Release
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Strawberry\c\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Strawberry\c\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Strawberry\c\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -33,26 +33,7 @@ rule CXX_STATIC_LIBRARY_LINKER__imgui_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__implot_unscanned_
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}C:\Strawberry\c\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for linking CXX static library.
-
-rule CXX_STATIC_LIBRARY_LINKER__implot_
-  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Strawberry\c\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Strawberry\c\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Strawberry\c\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
-  description = Linking CXX static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__FunctionalSpace_unscanned_
+rule CXX_COMPILER__UniformProjectionRL_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Strawberry\c\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -62,7 +43,7 @@ rule CXX_COMPILER__FunctionalSpace_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__FunctionalSpace_
+rule CXX_EXECUTABLE_LINKER__UniformProjectionRL_Release
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Strawberry\c\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -79,7 +60,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__glfw_unscanned_
+rule C_COMPILER__glfw_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Strawberry\c\bin\gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -89,7 +70,7 @@ rule C_COMPILER__glfw_unscanned_
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__glfw_
+rule C_STATIC_LIBRARY_LINKER__glfw_Release
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Strawberry\c\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Strawberry\c\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Strawberry\c\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT

@@ -25,7 +25,7 @@ CMAKE_AR:FILEPATH=C:/Strawberry/c/bin/ar.exe
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Release
 
 //CXX compiler
 CMAKE_CXX_COMPILER:FILEPATH=C:/Strawberry/c/bin/c++.exe
@@ -149,7 +149,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/FunctionalSpace
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/UniformProjectionRL
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -205,7 +205,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=FunctionalSpace
+CMAKE_PROJECT_NAME:STATIC=UniformProjectionRL
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.0
@@ -305,17 +305,35 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Value Computed by CMake
-FunctionalSpace_BINARY_DIR:STATIC=D:/coding-work/complex_projection_rl_like/build
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=D:/coding-work/complex_projection_rl_like/build/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for glfw
+FETCHCONTENT_SOURCE_DIR_GLFW:PATH=
+
+//When not empty, overrides where to find pre-populated content
+// for imgui
+FETCHCONTENT_SOURCE_DIR_IMGUI:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of glfw
+FETCHCONTENT_UPDATES_DISCONNECTED_GLFW:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of imgui
+FETCHCONTENT_UPDATES_DISCONNECTED_IMGUI:BOOL=OFF
 
 //Value Computed by CMake
-FunctionalSpace_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-FunctionalSpace_SOURCE_DIR:STATIC=D:/coding-work/complex_projection_rl_like
-
-//Value Computed by CMake
-GLFW_BINARY_DIR:STATIC=D:/coding-work/complex_projection_rl_like/build/external/glfw
+GLFW_BINARY_DIR:STATIC=D:/coding-work/complex_projection_rl_like/build/_deps/glfw-build
 
 //Build the GLFW documentation
 GLFW_BUILD_DOCS:BOOL=OFF
@@ -326,30 +344,29 @@ GLFW_BUILD_EXAMPLES:BOOL=OFF
 //Build the GLFW test programs
 GLFW_BUILD_TESTS:BOOL=OFF
 
-//Build support for Win32
-GLFW_BUILD_WIN32:BOOL=ON
-
 //Generate installation target
 GLFW_INSTALL:BOOL=ON
 
 //Value Computed by CMake
 GLFW_IS_TOP_LEVEL:STATIC=OFF
 
-//Library type override for GLFW (SHARED, STATIC, OBJECT, or empty
-// to follow BUILD_SHARED_LIBS)
-GLFW_LIBRARY_TYPE:STRING=
-
 //Value Computed by CMake
-GLFW_SOURCE_DIR:STATIC=D:/coding-work/complex_projection_rl_like/external/glfw
+GLFW_SOURCE_DIR:STATIC=D:/coding-work/complex_projection_rl_like/build/_deps/glfw-src
 
 //Force use of high-performance GPU on hybrid systems
 GLFW_USE_HYBRID_HPG:BOOL=OFF
 
-//OpenGL library for win32
-OPENGL_gl_LIBRARY:STRING=opengl32
+//Assume the Vulkan loader is linked with the application
+GLFW_VULKAN_STATIC:BOOL=OFF
 
-//GLU library for win32
-OPENGL_glu_LIBRARY:STRING=glu32
+//Value Computed by CMake
+UniformProjectionRL_BINARY_DIR:STATIC=D:/coding-work/complex_projection_rl_like/build
+
+//Value Computed by CMake
+UniformProjectionRL_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+UniformProjectionRL_SOURCE_DIR:STATIC=D:/coding-work/complex_projection_rl_like
 
 
 ########################
@@ -546,20 +563,20 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_TAPI-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-//Details about finding OpenGL
-FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
+//Have include dinput.h
+DINPUT_H_FOUND:INTERNAL=1
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
-//GLFW pkg-config Libs.private
-GLFW_PKG_CONFIG_LIBS_PRIVATE:INTERNAL=-lgdi32
-//GLFW pkg-config Requires.private
-GLFW_PKG_CONFIG_REQUIRES_PRIVATE:INTERNAL=
-//ADVANCED property for variable: OPENGL_gl_LIBRARY
-OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OPENGL_glu_LIBRARY
-OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+//Have include xinput.h
+XINPUT_H_FOUND:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+//Test _GLFW_HAS_64ASLR
+_GLFW_HAS_64ASLR:INTERNAL=1
+//Test _GLFW_HAS_ASLR
+_GLFW_HAS_ASLR:INTERNAL=1
+//Test _GLFW_HAS_DEP
+_GLFW_HAS_DEP:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/FunctionalSpace
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/UniformProjectionRL
 
